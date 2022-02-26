@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
 
     def create
         @comment = @post.comments.build(comments_params)
+        redirect_to root_path
         if @comment.save
-            redirect_to root_path, notice: "UUUUUUUUUUUUUUUUUUHHHHHH!!!!"
         else
             format.turbo_stream { render turbo_stream: turbo_stream.replace(@comment, partial: "comments/form", locals: { comment: @comment }) }
             render 'posts/post'
