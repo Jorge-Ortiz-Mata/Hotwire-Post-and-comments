@@ -1,0 +1,7 @@
+<%= form_with(model: [ @post, Comment.new ]) do |f| %>
+
+    <div>
+        <%= f.text_field :body, required: true %>
+        <%= f.submit %>
+    </div>
+<% end %>

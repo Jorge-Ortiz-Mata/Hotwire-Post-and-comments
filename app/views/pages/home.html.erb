@@ -1,0 +1,23 @@
+<h1>Homepage</h1>
+<%= turbo_stream_from "posts" %>
+<%= turbo_stream_from "comments" %>
+<div>
+    <h3>
+        Create a new post:
+    </h3>
+    <div>
+        <%= turbo_frame_tag "post_form" do %>
+            <%= render "posts/form", post: @post %>
+        <% end %>
+    </div>
+</div>
+<div>
+    <h3>
+        All posts.
+    </h3>
+    <div>
+        <%= turbo_frame_tag "posts" do %>
+            <%= render @posts %>
+        <% end %>
+    </div>
+</div>
